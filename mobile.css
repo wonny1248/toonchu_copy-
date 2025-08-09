@@ -30,9 +30,25 @@ body.tags-open .tagbar{ display:flex; }
 .selectedbar .chip .x{ margin-left:6px; cursor:pointer; opacity:.6; }
 
 /* -------------------------------------------------------
-   초소형 화면(≤480px): 3열 그리드 + 카드 컴팩트
+   태블릿 및 작은 PC 화면(≤1024px): 4열 그리드
    ------------------------------------------------------- */
-@media (max-width: 480px){
+@media (max-width: 1024px){
+  .grid{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    padding: 16px 12px;
+  }
+
+  /* 필요하면 카드 크기 조정 */
+  .card{ border-radius: 12px; }
+  .pad{ padding: 10px; }
+}
+
+
+/* -------------------------------------------------------
+   초소형 화면(≤640px): 3열 그리드 + 카드 컴팩트
+   ------------------------------------------------------- */
+@media (max-width: 640px){
   /* 그리드: 3열 배치 */
   .grid{
     grid-template-columns: repeat(3, minmax(0, 1fr));
