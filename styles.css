@@ -39,7 +39,7 @@ input[type="search"]{
   flex-wrap:wrap;
   gap:6px;
   margin-top:10px;
-  max-height: 220px; 
+  max-height: 150px; 
   overflow-y: auto;   
   padding-right: 6px;     
   overscroll-behavior: contain; 

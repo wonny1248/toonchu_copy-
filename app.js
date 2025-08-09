@@ -1,6 +1,6 @@
 // app.js
 // 데이터 파일: webtoon_data.json (index.html과 같은 폴더)
-const TAG_MIN_COUNT = 0; // ✅ 100개 이하는 숨김(>100만 표시)
+const TAG_MIN_COUNT = 99; // ✅ 100개 미만은 숨김
 const NO_TAG = "태그없음";       // ← 가짜 태그 이름
 
 
