@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>웹툰 갤러리 · 태그 필터 (Vanilla JS)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container row">
+      <h1>웹툰 갤러리 · 태그 필터 (Vanilla JS)</h1>
+      <button id="clear" class="btn">필터 초기화</button>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="container">
+      <div class="searchline">
+        <input id="q" type="search" placeholder="제목·작가 검색" />
+        <span id="stat-total" class="badge">총 0개</span>
+        <span id="stat-show" class="badge badge-accent">표시 0개</span>
+      </div>
+      <!-- 태그 바: 최초 1회만 생성하고 그대로 유지 -->
+      <div id="tags" class="tagbar"></div>
+    </div>
+  </div>
+
+  <main class="container">
+    <!-- Ajax처럼 이 그리드 영역만 부분 갱신 -->
+    <div id="grid" class="grid"></div>
+    <div id="empty" class="empty" style="display:none;">조건에 맞는 작품이 없습니다.</div>
+    <div id="error" class="error" style="display:none;"></div>
+    <button id="load-more" class="btn" style="display:none; margin: 0 auto 24px;">더 보기</button>
+  </main>
+
+  <footer class="container footer">
+    ※ 태그는 각 항목의 <code>tags</code> 배열에서 자동 생성됩니다. 여러 태그 선택 시 AND 방식으로 필터링합니다.
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
