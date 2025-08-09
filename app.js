@@ -173,11 +173,13 @@ function renderGrid(reset=false){
     grid.innerHTML = '';
     state.page = 1;
   }
-  const total = lastFiltered.length;
+  const total = lastFiltered.length;                    // ✅ 필터링된 총 개수
   const end = Math.min(total, state.page * state.pageSize);
   const start = grid.childElementCount;
 
-  statTotal.textContent = `총 ${state.items.length}개`;
+  // ✅ '총 N개'를 필터링된 총 개수로 표시
+  statTotal.textContent = `총 ${total}개`;
+  // 표시 N개는 현재 페이지에서 렌더된 개수
   statShow.textContent  = `표시 ${end}개`;
 
   if (total === 0) {
