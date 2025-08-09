@@ -1,0 +1,65 @@
+/* ==========================================================================
+   mobile.css  —  640px 이하(모바일) 전용 스타일
+   index.html에서 다음과 같이 로드하세요:
+   <link rel="stylesheet" href="./mobile.css" media="(max-width: 640px)" />
+   ========================================================================== */
+
+/* 기본: 모바일에서 태그바는 낮은 높이 */
+.tagbar{
+  max-height: 18vh;
+  /* 데스크탑 공통(styles.css)의 나머지 속성은 그대로 상속 */
+}
+
+/* 모바일 전용 컨트롤(토글 버튼/선택된 태그 요약) */
+.mobile-controls{ display:block; margin-top:8px; }
+.tag-toggle{ display:inline-flex; align-items:center; gap:6px; }
+
+/* 기본은 태그바 숨김 → body.tags-open 시 표시 (JS에서 class 토글) */
+.tagbar{ display:none; }
+body.tags-open .tagbar{ display:flex; }
+
+/* 선택된 태그 요약 바 */
+.selectedbar{
+  display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;
+  max-height: 80px; overflow-y:auto;
+}
+.selectedbar .chip{
+  font-size:12px; padding:3px 8px; background:#f5f5f5; border:1px solid var(--gray-200);
+  border-radius:999px; color:#333;
+}
+.selectedbar .chip .x{ margin-left:6px; cursor:pointer; opacity:.6; }
+
+/* -------------------------------------------------------
+   초소형 화면(≤480px): 3열 그리드 + 카드 컴팩트
+   ------------------------------------------------------- */
+@media (max-width: 480px){
+  /* 그리드: 3열 배치 */
+  .grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    padding: 16px 8px;
+  }
+
+  /* 카드: 라운드 약하게 + 패딩 축소 */
+  .card{ border-radius: 10px; }
+  .pad{ padding: 8px; }
+
+  /* 제목만 표시(작가/설명 숨김) */
+  .author{ display: none !important; }
+  .desc{ display: none !important; }
+  .title{ font-size: 13px; -webkit-line-clamp: 2; }
+
+  /* 카드당 태그 2개만 노출 */
+  .taglist .chip:nth-child(n+3){ display: none; }
+
+  /* 태그 칩 소형화 */
+  .chip{ font-size: 10px; padding: 2px 6px; }
+
+  /* 썸네일 비율 유지 */
+  .thumb{ aspect-ratio: 16/9; }
+
+  #stat-total {
+    display: none !important;
+  }
+  
+}
